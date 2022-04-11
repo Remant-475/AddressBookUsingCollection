@@ -10,13 +10,15 @@ namespace Addressbooknew
     {
 
         private List<Contacts> contactList;
+        private List<Contacts> cityList;
+        private List<Contacts> stateList;
 
         public AddressBookCollection()
         {
             contactList = new List<Contacts>();
         }
 
-        public void AddContactDetails(string firstName, string lastName, string address, string city, string state, long zipCode, long phoneNumber, string email)
+        public void AddContactDetails(string firstName, string lastName, string address, string city, string state, long zipCode, long phoneNumber, string email, Dictionary<string, List<Contacts>> stateDictionary, Dictionary<string, List<Contacts>> cityDictionary)
         {
 
             Contacts contact = contactList.Find(x => x.firstName.Equals(firstName));
@@ -25,6 +27,30 @@ namespace Addressbooknew
             {
                 Contacts contactDetails = new Contacts(firstName, lastName, address, city, state, zipCode, phoneNumber, email);
                 this.contactList.Add(contactDetails);
+                if (!cityDictionary.ContainsKey(city))
+                {
+
+                    cityList = new List<Contacts>();
+                    cityList.Add(contactDetails);
+                    cityDictionary.Add(city, cityList);
+                }
+                else
+                {
+                    List<Contacts> cities = cityDictionary[city];
+                    cities.Add(contactDetails);
+                }
+                if (!stateDictionary.ContainsKey(state))
+                {
+
+                    stateList = new List<Contacts>();
+                    stateList.Add(contactDetails);
+                    stateDictionary.Add(state, stateList);
+                }
+                else
+                {
+                    List<Contacts> states = stateDictionary[state];
+                    states.Add(contactDetails);
+                }
             }
 
             else
@@ -32,7 +58,6 @@ namespace Addressbooknew
                 Console.WriteLine("Person, {0} is already exist in the address book", firstName);
             }
         }
-
         public void DisplayContact()
         {
 
@@ -142,6 +167,13 @@ namespace Addressbooknew
             foreach (var data in list)
             {
                 data.Display();
+            }
+        }
+        public static void CountPerson(Dictionary<string, List<Contacts>> dictionary)
+        {
+            foreach (var person in dictionary)
+            {
+                Console.WriteLine("Number of person {0}:", person.Value.Count);
             }
         }
     }
