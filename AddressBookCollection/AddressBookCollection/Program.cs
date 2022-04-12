@@ -130,7 +130,7 @@ namespace AddressBookCollection
                     Console.WriteLine("Choose 1: To Add a Contact");
                     Console.WriteLine("Choose 2: To compute Contacts");
                     Console.WriteLine("Choose 3: To Edit a contact");
-                    Console.WriteLine("Choose 4: To Delete a Contact");
+                    Console.WriteLine("Choose 4: To Delete  Contact");
                     Console.WriteLine("Choose 0: To Exit");
 
                     option = int.Parse(Console.ReadLine());
