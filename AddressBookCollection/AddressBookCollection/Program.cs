@@ -67,7 +67,7 @@ namespace AddressBookCollection
                 AddressBook addresses = new AddressBook(FirstName.ToLower(), LastName, Address, City, State, ZipCode, PhoneNumber, Email);
                 contactList.Add(addresses);
                 contactsDetails.Add(FirstName.ToLower(), addresses);
-                
+
             }
             public void ComputeDetails()
             {
@@ -106,7 +106,20 @@ namespace AddressBookCollection
                     Console.WriteLine("First Name doesnt exist");
                 }
             }
-            
+            private void DeleteContacts()
+            {
+                Console.WriteLine("Enter first name to Delete");
+                string input = Console.ReadLine();
+                if (contactsDetails.ContainsKey(input.ToLower()))
+                {
+                    contactsDetails.Remove(input.ToLower());
+                }
+                else
+                {
+                    Console.WriteLine("first name doesnt exist");
+                }
+            }
+
             static void Main(string[] args)
             {
                 Console.WriteLine("Welcome to Address Book Program");
@@ -117,32 +130,35 @@ namespace AddressBookCollection
                     Console.WriteLine("Choose 1: To Add a Contact");
                     Console.WriteLine("Choose 2: To compute Contacts");
                     Console.WriteLine("Choose 3: To Edit a contact");
+                    Console.WriteLine("Choose 4: To Delete a Contact");
                     Console.WriteLine("Choose 0: To Exit");
-                    
-                        option = int.Parse(Console.ReadLine());
-                        switch (option)
-                        {
-                            case 1:
-                                Details.AddContact();
-                                continue;
-                            case 2:
-                                Details.ComputeDetails();
-                                continue;
-                            case 3:
-                                Console.WriteLine("Enter first name");
-                                string firstname = Console.ReadLine();
-                                Details.EditContacts(firstname);
-                                break;
-                             case 0:
+
+                    option = int.Parse(Console.ReadLine());
+                    switch (option)
+                    {
+                        case 1:
+                            Details.AddContact();
+                            continue;
+                        case 2:
+                            Details.ComputeDetails();
+                            continue;
+                        case 3:
+                            Console.WriteLine("Enter first name");
+                            string firstname = Console.ReadLine();
+                            Details.EditContacts(firstname);
+                            break;
+                        case 4:
+                            Details.DeleteContacts();
+                            break;
+                        case 0:
                             Console.WriteLine("Exit");
                             break;
-                            
-                            default:
-                                Console.WriteLine("Choose valid Option");
-                                break;
-                        }
-                    
-                    
+                        default:
+                            Console.WriteLine("Choose valid Option");
+                            break;
+                    }
+
+
                 } while (option != 0);
             }
         }
