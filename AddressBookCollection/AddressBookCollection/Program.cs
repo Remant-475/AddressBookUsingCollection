@@ -31,7 +31,8 @@ namespace AddressBookCollection
                             Console.WriteLine("Choose 3: To Edit a contact");
                             Console.WriteLine("Choose 4: To Delete a Contact");
                             Console.WriteLine("Choose 5: To Search Person by City Name");
-                            Console.WriteLine("CHoose 6: To Count Person City And State");
+                            Console.WriteLine("Choose 6: To Count Person City And State");
+                            Console.WriteLine("Choose 7: To Sort Person By Name ");
                             Console.WriteLine("Choose 0: To Exit");
 
                             option = int.Parse(Console.ReadLine());
@@ -60,6 +61,9 @@ namespace AddressBookCollection
                                 case 6:
                                     Family.Count();
                                     break;
+                                case 7:
+                                    Family.SortByName();
+                                    break;
                                 case 0:
                                     Console.WriteLine("Exit");
                                     break;
@@ -82,6 +86,7 @@ namespace AddressBookCollection
                             Console.WriteLine("Choose 4: To Delete a Contact");
                             Console.WriteLine("Choose 5: To Search Person by City Name");
                             Console.WriteLine("CHoose 6: To Count Person City And State");
+                            Console.WriteLine("Choose 7: To Sort Person By Name ");
                             Console.WriteLine("Choose 0: To Exit");
 
                             Option = int.Parse(Console.ReadLine());
@@ -110,6 +115,10 @@ namespace AddressBookCollection
                                 case 6:
                                     Friend.Count();
                                     break;
+                                case 7:
+                                    Friend.SortByName();
+                                    break;
+
                                 case 0:
                                     Console.WriteLine("Exit");
                                     break;
@@ -132,6 +141,7 @@ namespace AddressBookCollection
                             Console.WriteLine("Choose 4: To Delete a Contact");
                             Console.WriteLine("Choose 5: To Search Person by City Name");
                             Console.WriteLine("CHoose 6: To Count Person City And State");
+                            Console.WriteLine("Choose 7: To Sort Person By Name ");
                             Console.WriteLine("Choose 0: To Exit");
 
                             option = int.Parse(Console.ReadLine());
@@ -160,6 +170,9 @@ namespace AddressBookCollection
                                 case 6:
                                     Colleague.Count();
                                     break;
+                                case 7:
+                                    Colleague.SortByName();
+                                    break;
                                 case 0:
                                     Console.WriteLine("Exit");
                                     break;
@@ -182,6 +195,7 @@ namespace AddressBookCollection
                             Console.WriteLine("Choose 4: To Delete a Contact");
                             Console.WriteLine("Choose 5: To Search Person by City Name");
                             Console.WriteLine("CHoose 6: To Count Person City And State");
+                            Console.WriteLine("Choose 7: To Sort Person By Name ");
                             Console.WriteLine("Choose 0: To Exit");
 
                             options = int.Parse(Console.ReadLine());
@@ -208,6 +222,9 @@ namespace AddressBookCollection
                                     break;
                                 case 6:
                                     Others.Count();
+                                    break;
+                                case 7:
+                                    Others.SortByName();
                                     break;
                                 case 0:
                                     Console.WriteLine("Exit");

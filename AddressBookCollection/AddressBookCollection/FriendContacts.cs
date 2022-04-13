@@ -50,7 +50,7 @@ namespace AddressBookCollection
         public void EditContacts(string firstname)
         {
             {
-                foreach (AddressBook data in this.ContactList)
+                foreach (AddressBook data in ContactList)
                 {
                     if (data.FirstName.Equals(firstname))
                     {
@@ -147,7 +147,15 @@ namespace AddressBookCollection
 
             }
             var count = list.Count;
-            Console.WriteLine($"Total Persons in {City} & {State}:" + count);
+            Console.WriteLine("Total Persons in :" + City + "&" + State + "=" + count);
+        }
+        public void SortByName()
+        {
+            var sortList = ContactDetails.OrderBy(x => x.Value.FirstName).ToList();
+            foreach (var data in sortList)
+            {
+                Console.WriteLine(data.Value);
+            }
         }
     }
 }
