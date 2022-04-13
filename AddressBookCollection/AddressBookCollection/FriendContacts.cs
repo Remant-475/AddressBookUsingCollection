@@ -125,7 +125,7 @@ namespace AddressBookCollection
         }
         public void SearchPerson(string City)
         {
-            var list = ContactList.FindAll(x => x.City ==City);
+            var list = ContactList.FindAll(x => x.City.Equals(City));
             Console.WriteLine("Details of people who stays in city: ");
             foreach (var contact in list)
             {
@@ -139,7 +139,7 @@ namespace AddressBookCollection
             string City = Console.ReadLine();
             Console.WriteLine("Enter state");
             string State = Console.ReadLine();
-            var list = ContactList.FindAll(x => (x.City == City && x.State == State));
+            var list = ContactList.FindAll(x => x.City.Equals(City) && x.State.Equals(State));
             foreach (var contact in list)
             {
 
@@ -157,5 +157,40 @@ namespace AddressBookCollection
                 Console.WriteLine(data.Value);
             }
         }
+        public void SortByCityOrStateOrZipCode()
+        {
+            Console.WriteLine("Choose The option for Sorting ");
+            Console.WriteLine("1: Sort by City");
+            Console.WriteLine("2: Sort by State");
+            Console.WriteLine("3: Sort by ZipCode");
+            int option = int.Parse(Console.ReadLine());
+            switch (option)
+            {
+                case 1:
+                    var SortByCity = ContactDetails.OrderBy(x => x.Value.City).ToList();
+                    foreach (var data in SortByCity)
+                    {
+                        Console.WriteLine(data.Value);
+                    }
+                    break;
+                case 2:
+                    var SortByState = ContactDetails.OrderBy(x => x.Value.State).ToList();
+                    foreach (var data in SortByState)
+                    {
+                        Console.WriteLine(data.Value);
+                    }
+                    break;
+                case 3:
+                    var SortByZipCode = ContactDetails.OrderBy(x => x.Value.ZipCode).ToList();
+                    foreach (var data in SortByZipCode)
+                    {
+                        Console.WriteLine(data.Value);
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Please choose correct option");
+                    break;
+            }
     }
+        }  
 }

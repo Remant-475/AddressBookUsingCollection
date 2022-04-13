@@ -33,6 +33,7 @@ namespace AddressBookCollection
                             Console.WriteLine("Choose 5: To Search Person by City Name");
                             Console.WriteLine("Choose 6: To Count Person City And State");
                             Console.WriteLine("Choose 7: To Sort Person By Name ");
+                            Console.WriteLine("Choose 8: To Sort Person By City Or State Or ZipCode ");
                             Console.WriteLine("Choose 0: To Exit");
 
                             option = int.Parse(Console.ReadLine());
@@ -64,9 +65,13 @@ namespace AddressBookCollection
                                 case 7:
                                     Family.SortByName();
                                     break;
+                                case 8:
+                                    Family.SortByCityOrStateOrZipCode();
+                                    break;
                                 case 0:
                                     Console.WriteLine("Exit");
                                     break;
+                                    
                                 default:
                                     Console.WriteLine("Choose valid Option");
                                     break;
@@ -87,6 +92,7 @@ namespace AddressBookCollection
                             Console.WriteLine("Choose 5: To Search Person by City Name");
                             Console.WriteLine("CHoose 6: To Count Person City And State");
                             Console.WriteLine("Choose 7: To Sort Person By Name ");
+                            Console.WriteLine("Choose 8: To Sort Person By City Or State Or ZipCode ");
                             Console.WriteLine("Choose 0: To Exit");
 
                             Option = int.Parse(Console.ReadLine());
@@ -118,6 +124,9 @@ namespace AddressBookCollection
                                 case 7:
                                     Friend.SortByName();
                                     break;
+                                case 8:
+                                    Friend.SortByCityOrStateOrZipCode();
+                                    break;
 
                                 case 0:
                                     Console.WriteLine("Exit");
@@ -142,6 +151,7 @@ namespace AddressBookCollection
                             Console.WriteLine("Choose 5: To Search Person by City Name");
                             Console.WriteLine("CHoose 6: To Count Person City And State");
                             Console.WriteLine("Choose 7: To Sort Person By Name ");
+                            Console.WriteLine("Choose 8: To Sort Person By City Or State Or ZipCode ");
                             Console.WriteLine("Choose 0: To Exit");
 
                             option = int.Parse(Console.ReadLine());
@@ -173,6 +183,9 @@ namespace AddressBookCollection
                                 case 7:
                                     Colleague.SortByName();
                                     break;
+                                case 8:
+                                    Colleague.SortByCityOrStateOrZipCode();
+                                    break;
                                 case 0:
                                     Console.WriteLine("Exit");
                                     break;
@@ -196,6 +209,7 @@ namespace AddressBookCollection
                             Console.WriteLine("Choose 5: To Search Person by City Name");
                             Console.WriteLine("CHoose 6: To Count Person City And State");
                             Console.WriteLine("Choose 7: To Sort Person By Name ");
+                            Console.WriteLine("Choose 8: To Sort Person By City Or State Or ZipCode ");
                             Console.WriteLine("Choose 0: To Exit");
 
                             options = int.Parse(Console.ReadLine());
@@ -225,6 +239,9 @@ namespace AddressBookCollection
                                     break;
                                 case 7:
                                     Others.SortByName();
+                                    break;
+                                case 8:
+                                    Others.SortByCityOrStateOrZipCode();
                                     break;
                                 case 0:
                                     Console.WriteLine("Exit");
