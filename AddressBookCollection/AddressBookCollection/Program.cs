@@ -30,6 +30,8 @@ namespace AddressBookCollection
                             Console.WriteLine("Choose 2: To get Contacts");
                             Console.WriteLine("Choose 3: To Edit a contact");
                             Console.WriteLine("Choose 4: To Delete a Contact");
+                            Console.WriteLine("Choose 5: To Search Person by City Name");
+                            Console.WriteLine("CHoose 6: To Count Person City And State");
                             Console.WriteLine("Choose 0: To Exit");
 
                             option = int.Parse(Console.ReadLine());
@@ -49,6 +51,14 @@ namespace AddressBookCollection
                                     break;
                                 case 4:
                                     Family.DeleteContacts();
+                                    break;
+                                case 5:
+                                    Console.WriteLine("Enter city");
+                                    string city = Console.ReadLine();
+                                    Family.SearchPerson(city);
+                                    break;
+                                case 6:
+                                    Family.Count();
                                     break;
                                 case 0:
                                     Console.WriteLine("Exit");
@@ -70,6 +80,8 @@ namespace AddressBookCollection
                             Console.WriteLine("Choose 2: To get Contacts");
                             Console.WriteLine("Choose 3: To Edit a contact");
                             Console.WriteLine("Choose 4: To Delete a Contact");
+                            Console.WriteLine("Choose 5: To Search Person by City Name");
+                            Console.WriteLine("CHoose 6: To Count Person City And State");
                             Console.WriteLine("Choose 0: To Exit");
 
                             Option = int.Parse(Console.ReadLine());
@@ -89,6 +101,14 @@ namespace AddressBookCollection
                                     break;
                                 case 4:
                                     Friend.DeleteContacts();
+                                    break;
+                                case 5:
+                                    Console.WriteLine("Enter city");
+                                    string city = Console.ReadLine();
+                                    Friend.SearchPerson(city);
+                                    break;
+                                case 6:
+                                    Friend.Count();
                                     break;
                                 case 0:
                                     Console.WriteLine("Exit");
@@ -110,6 +130,8 @@ namespace AddressBookCollection
                             Console.WriteLine("Choose 2: To get Contacts");
                             Console.WriteLine("Choose 3: To Edit a contact");
                             Console.WriteLine("Choose 4: To Delete a Contact");
+                            Console.WriteLine("Choose 5: To Search Person by City Name");
+                            Console.WriteLine("CHoose 6: To Count Person City And State");
                             Console.WriteLine("Choose 0: To Exit");
 
                             option = int.Parse(Console.ReadLine());
@@ -129,6 +151,14 @@ namespace AddressBookCollection
                                     break;
                                 case 4:
                                     Colleague.DeleteContacts();
+                                    break;
+                                case 5:
+                                    Console.WriteLine("Enter city");
+                                    string city = Console.ReadLine();
+                                    Colleague.SearchPerson(city);
+                                    break;
+                                case 6:
+                                    Colleague.Count();
                                     break;
                                 case 0:
                                     Console.WriteLine("Exit");
@@ -151,6 +181,7 @@ namespace AddressBookCollection
                             Console.WriteLine("Choose 3: To Edit a contact");
                             Console.WriteLine("Choose 4: To Delete a Contact");
                             Console.WriteLine("Choose 5: To Search Person by City Name");
+                            Console.WriteLine("CHoose 6: To Count Person City And State");
                             Console.WriteLine("Choose 0: To Exit");
 
                             options = int.Parse(Console.ReadLine());
@@ -174,6 +205,9 @@ namespace AddressBookCollection
                                     Console.WriteLine("Enter city");
                                     string city = Console.ReadLine();
                                     Others.SearchPerson(city);
+                                    break;
+                                case 6:
+                                    Others.Count();
                                     break;
                                 case 0:
                                     Console.WriteLine("Exit");
