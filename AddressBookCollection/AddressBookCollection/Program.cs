@@ -44,8 +44,8 @@ namespace AddressBookCollection
                                     continue;
                                 case 3:
                                     Console.WriteLine("Enter first name");
-                                    string key = Console.ReadLine();
-                                    Family.EditContacts(key);
+                                    string firstname = Console.ReadLine();
+                                    Family.EditContacts(firstname);
                                     break;
                                 case 4:
                                     Family.DeleteContacts();
@@ -62,8 +62,8 @@ namespace AddressBookCollection
                         } while (option != 0);
                         break;
                     case 2:
-                        var friend = new FriendContacts();
-                        int options = 0;
+                        var Friend = new FriendContacts();
+                        int Option = 0;
                         do
                         {
                             Console.WriteLine("Choose 1: To Add a Contact");
@@ -72,22 +72,108 @@ namespace AddressBookCollection
                             Console.WriteLine("Choose 4: To Delete a Contact");
                             Console.WriteLine("Choose 0: To Exit");
 
+                            Option = int.Parse(Console.ReadLine());
+                            switch (Option)
+                            {
+                                case 1:
+                                    Friend.AddContact();
+
+                                    continue;
+                                case 2:
+                                    Friend.ComputeDetails();
+                                    continue;
+                                case 3:
+                                    Console.WriteLine("Enter first name");
+                                    string firstname = Console.ReadLine();
+                                    Friend.EditContacts(firstname);
+                                    break;
+                                case 4:
+                                    Friend.DeleteContacts();
+                                    break;
+                                case 0:
+                                    Console.WriteLine("Exit");
+                                    break;
+                                default:
+                                    Console.WriteLine("Choose valid Option");
+                                    break;
+                            }
+
+
+                        } while (Option != 0);
+                        break;
+                    case 3:
+                        var Colleague = new ColleagueContacts();
+                        int oPtion = 0;
+                        do
+                        {
+                            Console.WriteLine("Choose 1: To Add a Contact");
+                            Console.WriteLine("Choose 2: To get Contacts");
+                            Console.WriteLine("Choose 3: To Edit a contact");
+                            Console.WriteLine("Choose 4: To Delete a Contact");
+                            Console.WriteLine("Choose 0: To Exit");
+
+                            option = int.Parse(Console.ReadLine());
+                            switch (oPtion)
+                            {
+                                case 1:
+                                    Colleague.AddContact();
+
+                                    continue;
+                                case 2:
+                                    Colleague.ComputeDetails();
+                                    continue;
+                                case 3:
+                                    Console.WriteLine("Enter first name");
+                                    string firstname = Console.ReadLine();
+                                    Colleague.EditContacts(firstname);
+                                    break;
+                                case 4:
+                                    Colleague.DeleteContacts();
+                                    break;
+                                case 0:
+                                    Console.WriteLine("Exit");
+                                    break;
+                                default:
+                                    Console.WriteLine("Choose valid Option");
+                                    break;
+                            }
+
+
+                        } while (option != 0);
+                        break;
+                    case 4:
+                        var Others = new Others();
+                        int options = 0;
+                        do
+                        {
+                            Console.WriteLine("Choose 1: To Add a Contact");
+                            Console.WriteLine("Choose 2: To get Contacts");
+                            Console.WriteLine("Choose 3: To Edit a contact");
+                            Console.WriteLine("Choose 4: To Delete a Contact");
+                            Console.WriteLine("Choose 5: To Search Person by City Name");
+                            Console.WriteLine("Choose 0: To Exit");
+
                             options = int.Parse(Console.ReadLine());
                             switch (options)
                             {
                                 case 1:
-                                    friend.AddContact();
+                                    Others.AddContact();
                                     continue;
                                 case 2:
-                                    friend.ComputeDetails();
+                                    Others.ComputeDetails();
                                     continue;
                                 case 3:
                                     Console.WriteLine("Enter first name");
-                                    string key = Console.ReadLine();
-                                    friend.EditContacts(key);
+                                    string firstname = Console.ReadLine();
+                                    Others.EditContacts(firstname);
                                     break;
                                 case 4:
-                                    friend.DeleteContacts();
+                                    Others.DeleteContacts();
+                                    break;
+                                case 5:
+                                    Console.WriteLine("Enter city");
+                                    string city = Console.ReadLine();
+                                    Others.SearchPerson(city);
                                     break;
                                 case 0:
                                     Console.WriteLine("Exit");
@@ -100,8 +186,11 @@ namespace AddressBookCollection
 
                         } while (options != 0);
                         break;
+                    case 0: Console.WriteLine("Exit");
+                        break;
                 }
             } while (input != 0);
+
         }
     }
 }

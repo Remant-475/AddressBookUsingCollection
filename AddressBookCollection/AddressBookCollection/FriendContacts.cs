@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,86 +9,127 @@ namespace AddressBookCollection
 {
     internal class FriendContacts
     {
-        private ArrayList contactList;
-        private Dictionary<string, AddressBook> contactsDetails;
-
+        private List<AddressBook> ContactList;
+        private Dictionary<string, AddressBook> ContactDetails;
         public FriendContacts()
         {
-            contactList = new ArrayList();
-            contactsDetails = new Dictionary<string, AddressBook>();
+            ContactList = new List<AddressBook>();
+            ContactDetails = new Dictionary<string, AddressBook>();
         }
-
         public void AddContact()
         {
-            Console.WriteLine("Enter your First Name: ");
-            string FirstName = Console.ReadLine();
-            Console.WriteLine("Enter your Last Name: ");
-            string LastName = Console.ReadLine();
-            Console.WriteLine("Enter your Address: ");
-            string Address = Console.ReadLine();
-            Console.WriteLine("Enter your city: ");
-            string City = Console.ReadLine();
-            Console.WriteLine("Enter your State: ");
-            string State = Console.ReadLine();
-            Console.WriteLine("Enter your Zip: ");
-            string ZipCode = Console.ReadLine();
-            Console.WriteLine("Enter your Phone Number: ");
-            string PhoneNumber = Console.ReadLine();
-            Console.WriteLine("Enter your Email: ");
-            string Email = Console.ReadLine();
-            AddressBook addresses = new AddressBook(FirstName.ToLower(), LastName, Address, City, State, ZipCode, PhoneNumber, Email);
-            contactList.Add(addresses);
-            contactsDetails.Add(FirstName.ToLower(), addresses);
-
+            
+                Console.WriteLine("Enter Your First name");
+                string FirstName = Console.ReadLine();
+                Console.WriteLine("Enter Your Last name");
+                string LastName = Console.ReadLine();
+                Console.WriteLine("Enter Your Address");
+                string Address = Console.ReadLine();
+                Console.WriteLine("Enter Your City");
+                string City = Console.ReadLine();
+                Console.WriteLine("Enter Your State");
+                string State = Console.ReadLine();
+                Console.WriteLine("Enter Your Zipcode");
+                string ZipCode = Console.ReadLine();
+                Console.WriteLine("Enter Your Phone number");
+                string PhoneNumber = Console.ReadLine();
+                Console.WriteLine("Enter Your Email Id");
+                string Email = Console.ReadLine();
+                AddressBook contact = new AddressBook(FirstName, LastName, Address, City, State, ZipCode, PhoneNumber, Email);
+                ContactList.Add(contact);
+                ContactDetails.Add(FirstName, contact);
+            
         }
         public void ComputeDetails()
         {
-            foreach (KeyValuePair<string, AddressBook> contact in contactsDetails)
+            foreach (KeyValuePair<string, AddressBook> item in ContactDetails)
             {
-                Console.WriteLine(contact.Value);
+                Console.WriteLine(item.Value);
             }
         }
-
         public void EditContacts(string firstname)
         {
-            if (contactsDetails.ContainsKey(firstname))
             {
-                Console.WriteLine("Enter your First Name: ");
-                string FirstName = Console.ReadLine();
-                Console.WriteLine("Enter your Last Name: ");
-                string LastName = Console.ReadLine();
-                Console.WriteLine("Enter your Address: ");
-                string Address = Console.ReadLine();
-                Console.WriteLine("Enter your city: ");
-                string City = Console.ReadLine();
-                Console.WriteLine("Enter your State: ");
-                string State = Console.ReadLine();
-                Console.WriteLine("Enter your Zip: ");
-                string ZipCode = Console.ReadLine();
-                Console.WriteLine("Enter your Phone Number: ");
-                string PhoneNumber = Console.ReadLine();
-                Console.WriteLine("Enter your Email: ");
-                string Email = Console.ReadLine();
-                AddressBook addresses = new AddressBook(FirstName.ToLower(), LastName, Address, City, State, ZipCode, PhoneNumber, Email);
-                contactList.Add(addresses);
-                contactsDetails.Add(FirstName.ToLower(), addresses);
-            }
-            else
-            {
-                Console.WriteLine("First Name doesnt exist");
+                foreach (AddressBook data in this.ContactList)
+                {
+                    if (data.FirstName.Equals(firstname))
+                    {
+                        Console.WriteLine("Enter your choice:");
+                        Console.WriteLine("1. Last Name");
+                        Console.WriteLine("2. Address");
+                        Console.WriteLine("3. City");
+                        Console.WriteLine("4. State");
+                        Console.WriteLine("5. Zip");
+                        Console.WriteLine("6. Phone Number");
+                        Console.WriteLine("7. Email");
+                        int choice = Convert.ToInt32(Console.ReadLine());
+
+                        switch (choice)
+                        {
+                            case 1:
+                                Console.WriteLine("Enter Last Name");
+                                data.LastName = Console.ReadLine();
+                                Console.WriteLine("Data updated successfully \n");
+                                break;
+                            case 2:
+                                Console.WriteLine("Enter Address");
+                                data.Address = Console.ReadLine();
+                                Console.WriteLine("Data updated successfully \n");
+                                break;
+                            case 3:
+                                Console.WriteLine("Enter City");
+                                data.City = Console.ReadLine();
+                                Console.WriteLine("Data updated successfully \n");
+                                break;
+                            case 4:
+                                Console.WriteLine("Enter State");
+                                data.State = Console.ReadLine();
+                                Console.WriteLine("Data updated successfully \n");
+                                break;
+                            case 5:
+                                Console.WriteLine("Enter ZipCode");
+                                data.ZipCode = Console.ReadLine();
+                                Console.WriteLine("Data updated successfully \n");
+                                break;
+                            case 6:
+                                Console.WriteLine("Enter PhoneNumber");
+                                data.PhoneNumber = Console.ReadLine();
+                                Console.WriteLine("Data updated successfully \n");
+                                break;
+                            case 7:
+                                Console.WriteLine("Enter Email");
+                                data.Email = Console.ReadLine();
+                                Console.WriteLine("Data updated successfully \n");
+                                break;
+                            default:
+                                Console.WriteLine("Enter Valid Choice! \n");
+                                break;
+                        }
+                    }
+                    else Console.WriteLine("No Contact With this Name! \n");
+                }
             }
         }
-        public void DeleteContacts()
-        {
-            Console.WriteLine("Enter first name to Delete");
-            string input = Console.ReadLine();
-            if (contactsDetails.ContainsKey(input.ToLower()))
+            public void DeleteContacts()
             {
-                contactsDetails.Remove(input.ToLower());
+                 Console.WriteLine("Enter The FirstName to Delete Contact ");
+                  string input = Console.ReadLine();
+                     if (ContactDetails.ContainsKey(input))
+            {
+                ContactDetails.Remove(input);
             }
             else
             {
-                Console.WriteLine("first name doesnt exist");
+                Console.WriteLine("FirstName not found");
+            }
+        }
+        public void SearchPerson(string City)
+        {
+            var list = ContactList.FindAll(x => x.City ==City);
+            Console.WriteLine("Details of people who stays in city: ");
+            foreach (var contact in list)
+            {
+                Console.WriteLine(contact);
             }
         }
     }
