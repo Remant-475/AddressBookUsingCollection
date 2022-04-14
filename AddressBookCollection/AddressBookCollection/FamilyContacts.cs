@@ -192,6 +192,43 @@ namespace AddressBookCollection
                     break;
             }
         }
+        public void WriteAddressBookToFile()
+        {
+            string WritePath = @"C:\Users\ASUS\Desktop\Addressbookcollection\AddressBookUsingCollection\TextFile\FamilyAddressBook.txt";
+            using (StreamWriter streamWriter = File.AppendText(WritePath))
+            {
+                foreach (var contactdetails in ContactDetails)
+                {
+                    streamWriter.WriteLine(contactdetails.ToString());
+                }
+                streamWriter.Close();
+            }
+        }
+        public void ReadAddressBookFile()
+        {
+            string Filepath = @"C:\Users\ASUS\Desktop\Addressbookcollection\AddressBookUsingCollection\TextFile\FamilyAddressBook.txt";
+            string file = File.ReadAllText(Filepath);
+            Console.WriteLine(file);
+        }
+        public void WriteAndReadFile()
+        {
+            Console.WriteLine("Choose The option to Write and Read File in AddressBook");
+            Console.WriteLine("1: To Add Contact In File");
+            Console.WriteLine("2: To Read a File");
+            int option = int.Parse(Console.ReadLine());
+            switch (option)
+            {
+                case 1:
+                    WriteAddressBookToFile();
+                    break;
+                case 2:
+                    ReadAddressBookFile();
+                    break;
+                default:
+                    Console.WriteLine("Please choose correct option");
+                    break;
+            }
+        }
     }
 }
     

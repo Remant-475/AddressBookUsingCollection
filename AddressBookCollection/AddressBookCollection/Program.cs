@@ -34,6 +34,7 @@ namespace AddressBookCollection
                             Console.WriteLine("Choose 6: To Count Person City And State");
                             Console.WriteLine("Choose 7: To Sort Person By Name ");
                             Console.WriteLine("Choose 8: To Sort Person By City Or State Or ZipCode ");
+                            Console.WriteLine("Choose 9: to Read and Write File");
                             Console.WriteLine("Choose 0: To Exit");
 
                             option = int.Parse(Console.ReadLine());
@@ -68,6 +69,9 @@ namespace AddressBookCollection
                                 case 8:
                                     Family.SortByCityOrStateOrZipCode();
                                     break;
+                                case 9:
+                                    Family.WriteAndReadFile();
+                                        break;
                                 case 0:
                                     Console.WriteLine("Exit");
                                     break;
@@ -93,6 +97,7 @@ namespace AddressBookCollection
                             Console.WriteLine("CHoose 6: To Count Person City And State");
                             Console.WriteLine("Choose 7: To Sort Person By Name ");
                             Console.WriteLine("Choose 8: To Sort Person By City Or State Or ZipCode ");
+                            Console.WriteLine("Choose 9: to Read and Write File");
                             Console.WriteLine("Choose 0: To Exit");
 
                             Option = int.Parse(Console.ReadLine());
@@ -127,7 +132,9 @@ namespace AddressBookCollection
                                 case 8:
                                     Friend.SortByCityOrStateOrZipCode();
                                     break;
-
+                                case 9:
+                                    Friend.WriteAddressBookToFile();
+                                    break;
                                 case 0:
                                     Console.WriteLine("Exit");
                                     break;
@@ -135,8 +142,6 @@ namespace AddressBookCollection
                                     Console.WriteLine("Choose valid Option");
                                     break;
                             }
-
-
                         } while (Option != 0);
                         break;
                     case 3:
@@ -152,6 +157,7 @@ namespace AddressBookCollection
                             Console.WriteLine("CHoose 6: To Count Person City And State");
                             Console.WriteLine("Choose 7: To Sort Person By Name ");
                             Console.WriteLine("Choose 8: To Sort Person By City Or State Or ZipCode ");
+                            Console.WriteLine("Choose 9: to Read and Write File");
                             Console.WriteLine("Choose 0: To Exit");
 
                             option = int.Parse(Console.ReadLine());
@@ -186,6 +192,9 @@ namespace AddressBookCollection
                                 case 8:
                                     Colleague.SortByCityOrStateOrZipCode();
                                     break;
+                                case 9:
+                                    Colleague.WriteAddressBookToFile();
+                                    break;
                                 case 0:
                                     Console.WriteLine("Exit");
                                     break;
@@ -210,6 +219,7 @@ namespace AddressBookCollection
                             Console.WriteLine("CHoose 6: To Count Person City And State");
                             Console.WriteLine("Choose 7: To Sort Person By Name ");
                             Console.WriteLine("Choose 8: To Sort Person By City Or State Or ZipCode ");
+                            Console.WriteLine("Choose 9: to Read and Write File");
                             Console.WriteLine("Choose 0: To Exit");
 
                             options = int.Parse(Console.ReadLine());
@@ -243,6 +253,10 @@ namespace AddressBookCollection
                                 case 8:
                                     Others.SortByCityOrStateOrZipCode();
                                     break;
+                                case 9:
+                                    Others.WriteAddressBookToFile();
+                                    break;
+
                                 case 0:
                                     Console.WriteLine("Exit");
                                     break;
