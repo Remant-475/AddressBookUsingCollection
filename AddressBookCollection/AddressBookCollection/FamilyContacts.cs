@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using CsvHelper;
+using System.Globalization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -229,6 +231,29 @@ namespace AddressBookCollection
                     break;
             }
         }
-    }
+        public void WriteAndReadAddressBookCSVFile()
+        {
+            string FilePath = @"C:\Users\ASUS\Desktop\Addressbookcollection\AddressBookUsingCollection\CSVFiles\FamilyAddressBook.csv";
+            using (var writer = new StreamWriter(FilePath))
+            using (CsvWriter csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture))
+            {
+                csvWriter.WriteHeader<AddressBook>();
+                foreach (var contact in ContactList)
+                {
+                    csvWriter.NextRecord();
+                    csvWriter.WriteRecord(contact);
+                }
+            }
+            using (TextReader reader = new StreamReader(FilePath))
+            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+            {
+                var records = csv.GetRecords<AddressBook>().ToList();
+                foreach (AddressBook contact in records)
+                {
+                    Console.WriteLine(contact);
+                }
+            }
+      
+        }}
 }
     
