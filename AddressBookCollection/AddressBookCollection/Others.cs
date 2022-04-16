@@ -1,6 +1,7 @@
 ﻿using System;
 using CsvHelper;
 using System.Globalization;
+using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -252,6 +253,46 @@ namespace AddressBookCollection
                 {
                     Console.WriteLine(contact);
                 }
+            }
+        }
+        public void WriteJsonFile()
+        {
+            string JsonPath = @"C:\Users\ASUS\Desktop\Addressbookcollection\AddressBookUsingCollection\JsonFiles\OthersAdressBook.json";
+            string jsonData = JsonConvert.SerializeObject(ContactList);
+            using (StreamWriter writer = new StreamWriter(JsonPath))
+            {
+                writer.Flush();
+                writer.Write(jsonData);
+                Console.WriteLine(jsonData);
+            }
+        }
+        public void ReadJsonFile()
+        {
+            string JsonPath = @"C:\Users\ASUS\Desktop\Addressbookcollection\AddressBookUsingCollection\JsonFiles\OthersAdressBook.json";
+            string result = File.ReadAllText(JsonPath);
+            var deserialise = JsonConvert.DeserializeObject<List<AddressBook>>(result);
+            foreach (var contact in deserialise)
+            {
+                Console.WriteLine(contact);
+            }
+        }
+        public void WriteAndReadAddressBookUisngJsonFile()
+        {
+            Console.WriteLine("Choose The option for Write and Read File");
+            Console.WriteLine("1: For Write Json File");
+            Console.WriteLine("2: For Read Json File");
+            int option = int.Parse(Console.ReadLine());
+            switch (option)
+            {
+                case 1:
+                    WriteJsonFile();
+                    break;
+                case 2:
+                    ReadJsonFile();
+                    break;
+                default:
+                    Console.WriteLine("Choose Correct option");
+                    break;
             }
         }
     }

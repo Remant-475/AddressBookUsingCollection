@@ -36,6 +36,7 @@ namespace AddressBookCollection
                             Console.WriteLine("Choose 8: To Sort Person By City Or State Or ZipCode ");
                             Console.WriteLine("Choose 9: to Read and Write File");
                             Console.WriteLine("Choose 10: to Read and Write addressbook using csv files");
+                            Console.WriteLine("Choose 11: to Read and Write addressbook using json files");
                             Console.WriteLine("Choose 0: To Exit");
 
                             option = int.Parse(Console.ReadLine());
@@ -76,6 +77,9 @@ namespace AddressBookCollection
                                 case 10:
                                     Family.WriteAndReadAddressBookCSVFile();
                                     break;
+                                case 11:
+                                    Family.WriteAndReadAddressBookUisngJsonFile();
+                                    break;
                                 case 0:
                                     Console.WriteLine("Exit");
                                     break;
@@ -103,6 +107,8 @@ namespace AddressBookCollection
                             Console.WriteLine("Choose 8: To Sort Person By City Or State Or ZipCode ");
                             Console.WriteLine("Choose 9: to Read and Write File");
                             Console.WriteLine("Choose 10: to Read and Write addressbook using csv files");
+                            Console.WriteLine("Choose 10: to Read and Write addressbook using json files");
+                            Console.WriteLine("Choose 11: to Read and Write addressbook using json files");
                             Console.WriteLine("Choose 0: To Exit");
 
                             Option = int.Parse(Console.ReadLine());
@@ -143,6 +149,10 @@ namespace AddressBookCollection
                                 case 10:
                                     Friend.WriteAndReadAddressBookCSVFile();
                                     break;
+                                case 11:
+                                    Friend.WriteAndReadAddressBookUisngJsonFile();
+                                    break;
+
                                 case 0:
                                     Console.WriteLine("Exit");
                                     break;
@@ -167,6 +177,7 @@ namespace AddressBookCollection
                             Console.WriteLine("Choose 8: To Sort Person By City Or State Or ZipCode ");
                             Console.WriteLine("Choose 9: to Read and Write File");
                             Console.WriteLine("Choose 10: to Read and Write addressbook using csv files");
+                            Console.WriteLine("Choose 11: to Read and Write addressbook using json files");
                             Console.WriteLine("Choose 0: To Exit");
 
                             option = int.Parse(Console.ReadLine());
@@ -207,6 +218,9 @@ namespace AddressBookCollection
                                 case 10:
                                     Colleague.WriteAndReadAddressBookCSVFile();
                                     break;
+                                case 11:
+                                    Colleague.WriteAndReadAddressBookUisngJsonFile();
+                                    break;
                                 case 0:
                                     Console.WriteLine("Exit");
                                     break;
@@ -233,6 +247,7 @@ namespace AddressBookCollection
                             Console.WriteLine("Choose 8: To Sort Person By City Or State Or ZipCode ");
                             Console.WriteLine("Choose 9: to Read and Write File");
                             Console.WriteLine("Choose 10: to Read and Write addressbook using csv files");
+                            Console.WriteLine("Choose 11: to Read and Write addressbook using json files");
                             Console.WriteLine("Choose 0: To Exit");
 
                             options = int.Parse(Console.ReadLine());
@@ -272,7 +287,9 @@ namespace AddressBookCollection
                                 case 10:
                                     Others.WriteAndReadAddressBookCSVFile();
                                         break;
-
+                                case 11:
+                                    Others.WriteAndReadAddressBookUisngJsonFile();
+                                    break;
                                 case 0:
                                     Console.WriteLine("Exit");
                                     break;
